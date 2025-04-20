@@ -94,66 +94,78 @@ const Sidebar = () => {
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } p-5 overflow-y-auto shadow-lg`}
       >
-      <h1 className="text-2xl font-bold mb-10 mt-4">React store</h1>
-      <section>
-        <input
-          type="text"
-          className="border-1 rounded px-2 sm:mb-0 mb-2 w-full"
-          placeholder="search products"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-
-        <div className="flex justify-center items-center">
+      <h1 className="text-2xl font-bold mb-8 mt-4 text-gray-800 border-b pb-4">React store</h1>
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-sm font-medium text-gray-600">Search</h2>
           <input
             type="text"
-            className="border-1 px-5 mr-2 py-3 mb-3 w-full"
-            placeholder="Min"
-            value={minPrice ?? ""}
-            onChange={handleMinPriceChange}
-          />
-          <input
-            type="text"
-            className="border-1 px-5 mr-2 py-3 mb-3 w-full"
-            placeholder="Max"
-            value={maxPrice ?? ""}
-            onChange={handleMaxPriceChange}
+            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+
+        <div className="space-y-2">
+          <h2 className="text-sm font-medium text-gray-600">Price Range</h2>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="Min"
+              value={minPrice ?? ""}
+              onChange={handleMinPriceChange}
+            />
+            <input
+              type="text"
+              className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="Max"
+              value={maxPrice ?? ""}
+              onChange={handleMaxPriceChange}
+            />
+          </div>
+        </div>
+
         {/* categories search */}
-        <div className="mb-5">
-          <h2 className="text-xl font-semibold mb-3">Categories</h2>
-          {categories.map((category, index) => (
-            <label key={index} className="block mb-2">
-              <input
-                type="radio"
-                name="category"
-                value={category}
-                className="mr-2"
-                onChange={()=>handleCategoriesChange(category)}
-                checked = {selectedCategory === category}
-              />
-              <span>{category.toUpperCase()}</span>
-            </label>
-          ))}
+        <div className="space-y-3">
+          <h2 className="text-sm font-medium text-gray-600">Categories</h2>
+          <div className="space-y-2 max-h-48 overflow-y-auto pr-2">
+            {categories.map((category, index) => (
+              <label key={index} className="flex items-center p-2 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                <input
+                  type="radio"
+                  name="category"
+                  value={category}
+                  className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                  onChange={() => handleCategoriesChange(category)}
+                  checked={selectedCategory === category}
+                />
+                <span className="ml-2 text-sm text-gray-700">{category.charAt(0).toUpperCase() + category.slice(1)}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
         {/* keywords search */}
-        <section>
-          <div className="mb-5 mt-4">
-            <h2 className="text-xl font-semibold mb-3">Keywords</h2>
+        <section className="space-y-3">
+          <h2 className="text-sm font-medium text-gray-600">Keywords</h2>
+          <div className="space-y-2">
             {keywords.map((keyword, index) => (
               <button
                 key={index}
-                onClick={()=>handleKeywordClik(keyword)}
-                className="block mb-2 px-4 py-2 w-full text-left border rounded hover:bg-gray-200 cursor-pointer"
+                onClick={() => handleKeywordClik(keyword)}
+                className="w-full px-4 py-2 text-left text-sm bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200 border border-gray-200 hover:border-gray-300"
               >
-                {keyword.toUpperCase()}
+                {keyword.charAt(0).toUpperCase() + keyword.slice(1)}
               </button>
             ))}
           </div>
-          <button onClick={handleResetFilter} className="w-full mb-[4rem] py-2 bg-black text-white cursor-pointer">
-            Reset filter
+          <button 
+            onClick={handleResetFilter} 
+            className="w-full py-2.5 mt-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium"
+          >
+            Reset Filters
           </button>
         </section>
       </section>
