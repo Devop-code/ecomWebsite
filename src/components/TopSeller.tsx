@@ -45,18 +45,42 @@ export const TopSeller = () => {
          setAuthor(prevAuthor => prevAuthor.map((author,i)=> i === index ?{...author,isFollowing:!author.isFollowing}:author)
     )}
   return (
-    <div className='bg-white p-5 mt-[5rem] border w-[23rem] rounded'>
-        <h2 className='text-xl font-bold mb-5'>Top Sellers</h2>
-        <ul>
-            {authors.map((author , index)=>(
-               <li key={index} className='flex items-center justify-between mb-4'>
-                  <section className='flex justify-between items-center'>
-                    <img src={author.image} alt={author.name} className='w-12 h-12 object-cover rounded-full'/>
-                    <span className='ml-4'>{author.name}</span>
-                   <div className=' row-auto items-center flex-col'>
-                   <button onClick={()=>handleFollow(index)} className={`py-1 cursor-pointer px-3 rounded ml-15 ${author.isFollowing ? "bg-red-500 text-white":"bg-black text-white"} `}>{author.isFollowing ? 'UnFollow':'Follow'}</button>
-                   </div>
-                  </section>
+    <div className='bg-white rounded-lg shadow-sm p-6 w-[320px]'>
+        <h2 className='text-xl font-bold text-gray-900 mb-6 flex items-center'>
+          <span className='bg-blue-100 p-2 rounded-lg mr-3'>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+            </svg>
+          </span>
+          Top Sellers
+        </h2>
+        <ul className='space-y-4'>
+            {authors.map((author, index) => (
+               <li key={index} className='flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg transition-colors duration-200'>
+                  <div className='flex items-center flex-1'>
+                    <div className='relative'>
+                      <img 
+                        src={author.image} 
+                        alt={author.name} 
+                        className='w-12 h-12 object-cover rounded-full ring-2 ring-gray-100'
+                      />
+                      <span className='absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full'></span>
+                    </div>
+                    <div className='ml-4'>
+                      <h3 className='font-medium text-gray-900'>{author.name}</h3>
+                      <p className='text-sm text-gray-500'>Active now</p>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => handleFollow(index)} 
+                    className={`ml-4 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                      author.isFollowing 
+                        ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' 
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                    }`}
+                  >
+                    {author.isFollowing ? 'Following' : 'Follow'}
+                  </button>
                </li>
             ))}
         </ul>
