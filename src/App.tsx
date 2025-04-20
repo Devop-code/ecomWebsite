@@ -4,11 +4,13 @@ import { ProductPage } from "./components/ProductPage"
 import { MainContent } from "./components/MainContent"
 import { TopSeller } from "./components/TopSeller"
 import { PopularBlog } from "./components/PopularBlog"
+import { Header } from "./components/Header"
 export default function App(){
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
-        <div className="flex">
+        <Header />
+        <div className="flex mt-8">
           <Sidebar/>
           <div className="flex-1 flex">
             <div className="flex-1 min-w-0">
