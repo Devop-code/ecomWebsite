@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFilter } from "./FilterContext";
+import { Menu, X } from "lucide-react";
 
 interface Product {
   category: string;
@@ -23,6 +24,7 @@ const Sidebar = () => {
   } = useFilter();
 
   const [categories, setCategories] = useState<string[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
   const [keywords] = useState<string[]>([
     "apple",
     "watch",
@@ -69,7 +71,29 @@ const Sidebar = () => {
     setKeyword("")
   }
   return (
-    <div className="w-64 p-5 h-screen">
+    <>
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden fixed top-4 right-4 z-50 p-2 rounded-md bg-white shadow-md"
+      >
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside
+        className={`fixed lg:static top-0 left-0 h-screen w-64 bg-white transform transition-transform duration-300 ease-in-out z-50 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        } p-5 overflow-y-auto shadow-lg`}
+      >
       <h1 className="text-2xl font-bold mb-10 mt-4">React store</h1>
       <section>
         <input
@@ -133,7 +157,8 @@ const Sidebar = () => {
           </button>
         </section>
       </section>
-    </div>
+    </aside>
+    </>
   );
 };
 
