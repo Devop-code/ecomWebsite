@@ -4,7 +4,13 @@ metadata:
   name: ecomWebsite
   annotations:
     github.com/project-slug: Devop-code/ecomWebsite
+  links:
+    -url: https://ecom-website-beta-ten.vercel.app/
+    title: ecomvitrine
+    icon: landing page
+    type: langingPage-home 
 spec:
   type: other
   lifecycle: unknown
   owner: Devop-code
+
