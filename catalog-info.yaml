@@ -7,10 +7,10 @@ metadata:
   tags:
     - typescript
   links:
-    - url: https://admin.example-org.com
-      title: Admin Dashboard
-      icon: dashboard
-      type: admin-dashboard
+    - url: https://ecom-website-beta-ten.vercel.app/
+      title: website
+      icon: ecomWebsite
+      type: ecommerce-website
 spec:
   type: other
   lifecycle: unknown
