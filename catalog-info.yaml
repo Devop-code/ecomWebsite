@@ -4,6 +4,10 @@ metadata:
   name: ecomWebsite
   annotations:
     github.com/project-slug: Devop-code/ecomWebsite
+  links:
+    - url: https://dashboard.example.com
+      title: My Dashboard
+      icon: dashboard
 spec:
   type: other
   lifecycle: unknown
