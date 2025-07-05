@@ -3,6 +3,7 @@ kind: Component
 metadata:
   name: ecomWebsite
   annotations:
+    backstage.io/techdocs-ref: value
     github.com/project-slug: Devop-code/ecomWebsite
   tags:
     - typescript
