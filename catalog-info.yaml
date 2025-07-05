@@ -5,7 +5,7 @@ metadata:
   annotations:
     github.com/project-slug: Devop-code/ecomWebsite
   links:
-    - url: https://dashboard.example.com
+    - url: https://ecom-website-beta-ten.vercel.app/
       title: My Dashboard
       icon: dashboard
 spec:
