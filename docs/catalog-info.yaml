@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: services-with-docs
+  backstage.io/techdocs-ref: dir:.
+  description: The place to be, for great artists
+spec:
+  type: service
+  lifecycle: production
+  owner: artist-relations-team
