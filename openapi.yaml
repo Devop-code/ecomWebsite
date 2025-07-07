@@ -9,4 +9,4 @@ spec:
   owner: artist-relations-team
   system: artist-engagement-portal
   definition:
-    $json: 'https://gist.githubusercontent.com/Devop-code/68f191aaa44571151f38152d2db4af09/raw/7d0b7711f8c36cfd2c09eb6d4ccde3d7e3a408a9/test-swag.json'
+    $json: 'https://gist.githubusercontent.com/Devop-code/075db0f8288a52ab1fdc1f93f6e540ef/raw/e84ab046a21c4eed6343985fb7113b657d884e40/test-swag.json'
