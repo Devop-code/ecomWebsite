@@ -5,7 +5,7 @@ metadata:
   description: The place to be, for great artists
   annotations:
     backstage.io/techdocs-ref: dir:.
-    github.com/project-slug: github.com/project-slug: github.com/Boaz-study-organization/Boaz-study-vitrine
+    github.com/project-slug: github.com/Boaz-study-organization/Boaz-study-vitrine
 spec:
   type: service
   lifecycle: production
