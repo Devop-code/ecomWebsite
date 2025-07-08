@@ -4,7 +4,7 @@ metadata:
   name: ecomWebsite
   annotations:
     backstage.io/techdocs-ref: value
-    github.com/project-slug: Devop-code/ecomWebsite
+    github.com/project-slug: github.com/Boaz-study-organization/Boaz-study-vitrine
   tags:
     - typescript
   links:
