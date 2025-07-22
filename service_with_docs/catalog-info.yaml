@@ -9,5 +9,5 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: artist-relations-team
-  system: artist-engagement-portal
+  owner: boaz-study-team
+  system: boaz-study
